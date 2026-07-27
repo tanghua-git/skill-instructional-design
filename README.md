@@ -21,8 +21,17 @@
 | **Multi-Agent Architecture** 🤖 | Student analyst, Content architect, Goal designer, Activity designer, Assessment designer, Motivation designer, Metacognition coach, QA reviewer |
 | **ICAP Framework** 🧠 | Interactive-Constructive-Active-Passive cognitive engagement optimization |
 | **Bloom's Taxonomy** 📊 | 6×4 matrix for precise learning objective mapping |
-| **5-D Consistency Check** 🔍 | Ensures alignment between goals ↔ activities ↔ assessment |
+| **7-D Quality Check** 🔍 | Goals ↔ activities ↔ assessment alignment + readability audit (v3.0: plain-language output guaranteed) |
 | **Word Export** 📄 | Generates downloadable .docx lesson plans |
+
+---
+
+## 🆕 What's New in v3.0 (2026-07)
+
+- **Bilingual Expression Mechanism** — The skill thinks in professional theory internally, but outputs in plain, teacher-friendly language. Jargon is moved to an appendix with first-use explanations and "because…so…" rationale phrasing. New: `references/plain-language.md`.
+- **Knowledge Base Now Optional** — KB integration is an enhancement layer, not a hard dependency. The skill works out of the box for anyone you share it with (all theory is distilled into `references/`).
+- **Edge Cases Handbook** — New: `references/edge-cases.md` covering special class types, missing information, and fallback strategies.
+- **Leaner Core** — `SKILL.md` streamlined from 1059 → 443 lines; theory distilled into references, duplication removed.
 
 ---
 
@@ -102,7 +111,7 @@ Pro Mode Workflow (9 steps):
 
 ```
 skill-instructional-design/
-├── SKILL.md              # Main skill file (v2.1 Darwin-optimized)
+├── SKILL.md              # Main skill file (v3.0 — bilingual plain-language refactor)
 ├── README.md             # This file
 └── references/
     ├── bloom-matrix.md             # Bloom's 6×4 matrix + ABCD objectives
@@ -113,12 +122,14 @@ skill-instructional-design/
     ├── sdt-motivation.md           # Self-determination theory design patterns
     ├── metacognition.md            # Reflection card templates + Think Aloud
     ├── create-checklist.md         # CREATE 6-dimension QA checklist
+    ├── plain-language.md           # v3.0: plain-language expression rules (jargon → appendix)
+    ├── edge-cases.md               # v3.0: edge cases & fallback strategies
     └── ai-era-framework.md         # AI in education: assessment taxonomy + L0-L5 teacher spectrum
 ```
 
 ---
 
-## 📊 Quality Score (Darwin Skill 2.0)
+## 📊 Quality Score (v2.1 Darwin Baseline)
 
 | Dimension | Score | Note |
 |-----------|-------|------|
@@ -132,7 +143,7 @@ skill-instructional-design/
 | Empirical Testing | ✅ 10/10 | Test prompts validated |
 | Anti-pattern Blacklist | ✅ 10/10 | Explicit "don't do" list |
 
-**Overall: 92.4/100** — Darwin v2.1 optimized baseline.
+**Overall: 92.4/100** — v2.1 Darwin baseline. v3.0 keeps this architecture and adds the bilingual plain-language layer on top (see "What's New in v3.0").
 
 ---
 
