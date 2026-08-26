@@ -5,9 +5,9 @@
 ![GitHub](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
 ![Topics](https://img.shields.io/badge/tags-instructional--design%20%7C%20ai--education%20%7C%20icap-brightgreen?style=flat-square)
 
-> **中小学各学科教学设计助手** — 基于 ICAP / 布鲁姆分类学 / 扶放有度框架，通过多智能体协作生成系统化教案。
+> **中小学各学科公开课教学设计助手** — 统一公开课模式：完整设计流程 + 信息技术融合设计（逐环节标注）+ 教学亮点提炼 + 说课要点，内置理论参考库与规范 Word 排版引擎，输出可直接打印上课的教案文档。
 >
-> An AI-powered instructional design assistant for K-12 education. Multi-agent collaboration for systematic lesson plan generation, powered by ICAP, Bloom's Taxonomy, and Gradual Release of Responsibility frameworks.
+> An AI-powered instructional design assistant for K-12 demo/open classes. Unified open-class workflow with IT-integration design, teaching highlights extraction, and lesson presentation (说课) notes. Built-in theory library and a standard Word formatting engine. Powered by ICAP, Bloom's Taxonomy, and Gradual Release of Responsibility frameworks.
 
 ---
 
@@ -15,23 +15,32 @@
 
 | Capability | Description |
 |-----------|-------------|
-| **Lite Mode** 🚀 | Quick lesson plan generation with 3 agents, 5 steps — ideal for daily teaching |
-| **Pro Mode** 🏗️ | Deep instructional design with 8 agents, 9 steps — for demo/open class competitions |
-| **5 Lesson Types** 📚 | New lesson / Review / Practice / Inquiry / Assessment review |
-| **Multi-Agent Architecture** 🤖 | Student analyst, Content architect, Goal designer, Activity designer, Assessment designer, Motivation designer, Metacognition coach, QA reviewer |
+| **Unified Open-Class Mode** 🎯 | Full design workflow + IT integration (per-step annotations) + highlights + 说课 notes — one mode for all demo/open/research classes |
+| **5 Lesson Types** 📚 | New lesson / Review / Practice / Inquiry / Assessment review (each with a theory-matched decision tree) |
+| **Multi-Agent Architecture** 🤖 | Student analyst, Content architect, Goal designer, Activity designer, Assessment designer, Motivation designer, Metacognition coach, QA reviewer, Open-class designer |
 | **ICAP Framework** 🧠 | Interactive-Constructive-Active-Passive cognitive engagement optimization |
-| **Bloom's Taxonomy** 📊 | 6×4 matrix for precise learning objective mapping |
-| **7-D Quality Check** 🔍 | Goals ↔ activities ↔ assessment alignment + readability audit (v3.0: plain-language output guaranteed) |
-| **Word Export** 📄 | Generates downloadable .docx lesson plans |
+| **Bloom's Taxonomy** 📊 | 6×4 matrix for precise ABCD learning objectives (observable verbs only) |
+| **IT Integration Design** 🖥 | Per-step tech annotations (希沃白板 etc.) with failure fallbacks — technology serves teaching, never for its own sake |
+| **8-D Quality Check** 🔍 | Goals ↔ activities ↔ assessment alignment + readability audit (v4.0: jargon-free plain language guaranteed) |
+| **Word Export** 📄 | Standard-formatted .docx lesson plans via built-in formatting engine (print-ready, 仿宋/黑体/楷体 typography) |
 
 ---
 
-## 🆕 What's New in v3.0 (2026-07)
+## 🆕 What's New
+
+### v4.0 (2026-08) — Unified Open-Class Edition
+
+- **Unified Open-Class Mode** — Replaces the Lite/Pro split with one full workflow: complete design process + IT integration design (per-step annotations) + teaching highlights (3-5 items, each traceable to a step) + 说课要点 (6-part presentation notes).
+- **IT Integration Design** — Every step annotated with tool usage (希沃白板5, 实物展台, AI tools, etc.), each answering "what teaching problem does it solve", plus a full tech overview table with failure fallbacks. "Not using tech + reason" is also a professional judgment.
+- **Standard Word Formatting Engine** — New: `scripts/build_docx.py` renders a spec-compliant Markdown to print-ready .docx (中文字体规范、流程框图、表格列宽、页码、附录分页). Format spec: `references/docx-format-spec.md`.
+- **Open-Class Guide** — New: `references/open-class-guide.md` covering IT integration principles, highlights extraction methods, and the 说课 framework.
+- **8-D Quality Check** — Readability and formatting compliance are now veto items; jargon must be collected into an appendix with plain-language explanations.
+
+### v3.0 (2026-07)
 
 - **Bilingual Expression Mechanism** — The skill thinks in professional theory internally, but outputs in plain, teacher-friendly language. Jargon is moved to an appendix with first-use explanations and "because…so…" rationale phrasing. New: `references/plain-language.md`.
 - **Knowledge Base Now Optional** — KB integration is an enhancement layer, not a hard dependency. The skill works out of the box for anyone you share it with (all theory is distilled into `references/`).
 - **Edge Cases Handbook** — New: `references/edge-cases.md` covering special class types, missing information, and fallback strategies.
-- **Leaner Core** — `SKILL.md` streamlined from 1059 → 443 lines; theory distilled into references, duplication removed.
 
 ---
 
@@ -50,7 +59,7 @@ openclaw skill install tanghua-git/skill-instructional-design
 
 ### As a standalone AI Agent Skill
 
-Copy the `SKILL.md` and `references/` folder to your AI agent's skills directory:
+Copy the `SKILL.md`, `references/`, and `scripts/` folders to your AI agent's skills directory:
 
 ```bash
 cp -r skill-instructional-design ~/my-agent-skills/
@@ -60,36 +69,21 @@ cp -r skill-instructional-design ~/my-agent-skills/
 
 ## 🚀 Usage
 
-### Lite Mode (Daily Lesson Planning)
-
-> **Input:** "设计八年级物理《压强》第一课时教案"
-> **Output:** Full lesson plan with objectives, activities, assessment, and board design
+> **Input:** "帮我做初中物理八年级下册《牛顿第一定律》的教案设计，我授课工具是希沃白板5"
+> **Output:** Full open-class lesson plan with objectives, activities, assessment, board design, IT integration, highlights, and 说课 notes — delivered as a print-ready .docx
 
 ```
-Lite Mode Workflow:
-  Step 0: Requirements Analysis
-  Step 1: Goal Design (with embedded student/content/motivation constraints)
-  Step 2: Activity Design (with embedded metacognitive prompts)
-  Step 3: Assessment Design
-  Step 4: Lesson Plan Assembly → Word Export
-```
-
-### Pro Mode (Demo/Open Class)
-
-> **Input:** "高一语文《念奴娇·赤壁怀古》新授课，公开课"
-> **Output:** Comprehensive instructional design with rationale, differentiated paths, and quality audit
-
-```
-Pro Mode Workflow (9 steps):
-  Step 0   → Requirements Analysis
-  Step 0.5 → Unit Positioning + Lesson Type Decision
-  Step 1   → Student + Content + Motivation Analysis (parallel)
-  Step 1.5 → Goal Design (Bloom's 6×4 matrix)
-  Step 2   → Activity + Assessment + Metacognition (parallel)
-  Step 2.5 → 5-D Consistency Review + Confidence Self-Assessment
-  Step 3   → Lesson Plan Assembly + Differentiated Paths
-  Step 4   → QA Feedback
-  Step 5   → Implementation Issue Prediction
+Unified Workflow (10 steps):
+  Step 0    → Requirements Analysis
+  Step 0.5  → Unit Positioning + Lesson Type Decision
+  Step 1    → Student + Content + Motivation Analysis (parallel)
+  Step 1.5  → Goal Design (Bloom's 6×4 matrix, ABCD format)
+  Step 2    → Activity + Assessment + Metacognition (parallel, with per-step IT annotations)
+  Step 2.5  → 5-D Consistency Review + Confidence Self-Assessment
+  Step 3    → Open-Class Design (highlights + 说课 notes + IT overview with fallbacks)
+  Step 4    → Lesson Plan Assembly → Word Export (build_docx.py)
+  Step 5    → QA Feedback (8 dimensions)
+  Step 6    → Implementation Issue Prediction
 ```
 
 ---
@@ -104,6 +98,7 @@ Pro Mode Workflow (9 steps):
 | **Self-Determination Theory** (Deci & Ryan) | Autonomy/Competence/Relatedness motivation design | `references/sdt-motivation.md` |
 | **Backward Design** (UbD, Wiggins & McTighe) | Goals → Assessment → Activities | Embedded in workflow |
 | **AI in Education Framework** | AI integration levels (No AI / AI-assisted / AI-integrated) | `references/ai-era-framework.md` |
+| **Open-Class Design** | IT integration principles + highlights + 说课 framework | `references/open-class-guide.md` |
 
 ---
 
@@ -111,25 +106,30 @@ Pro Mode Workflow (9 steps):
 
 ```
 skill-instructional-design/
-├── SKILL.md              # Main skill file (v3.0 — bilingual plain-language refactor)
+├── SKILL.md              # Main skill file (v4.0 — unified open-class edition)
 ├── README.md             # This file
-└── references/
-    ├── bloom-matrix.md             # Bloom's 6×4 matrix + ABCD objectives
-    ├── icap-scaffold.md            # ICAP framework + 50+ teaching strategies
-    ├── assessment-design.md        # GRASPS + SOLO + tiered rubrics
-    ├── learner-analysis.md         # Misconception prediction + 4-layer diagnosis
-    ├── big-ideas.md                # Big ideas extraction methodology
-    ├── sdt-motivation.md           # Self-determination theory design patterns
-    ├── metacognition.md            # Reflection card templates + Think Aloud
-    ├── create-checklist.md         # CREATE 6-dimension QA checklist
-    ├── plain-language.md           # v3.0: plain-language expression rules (jargon → appendix)
-    ├── edge-cases.md               # v3.0: edge cases & fallback strategies
-    └── ai-era-framework.md         # AI in education: assessment taxonomy + L0-L5 teacher spectrum
+├── references/
+│   ├── plain-language.md           # v3.0: plain-language expression rules (jargon → appendix)
+│   ├── open-class-guide.md         # v4.0: IT integration + highlights + 说课 framework
+│   ├── docx-format-spec.md         # v4.0: Markdown→Word syntax & typography spec
+│   ├── bloom-matrix.md             # Bloom's 6×4 matrix + ABCD objectives
+│   ├── icap-scaffold.md            # ICAP framework + teaching strategy mapping
+│   ├── assessment-design.md        # GRASPS + SOLO + tiered rubrics
+│   ├── learner-analysis.md         # Misconception prediction + cognitive conflict design
+│   ├── big-ideas.md                # Big ideas extraction methodology
+│   ├── sdt-motivation.md           # Self-determination theory design patterns
+│   ├── metacognition.md            # Reflection card templates + Think Aloud
+│   ├── create-checklist.md         # CREATE 6-dimension QA checklist
+│   ├── edge-cases.md               # v3.0: edge cases & fallback strategies
+│   └── ai-era-framework.md         # AI in education: assessment taxonomy + teacher spectrum
+└── scripts/
+    ├── build_docx.py               # v4.0: Markdown → standard .docx formatting engine
+    └── sample_test.md              # v4.0: format spec sample for engine testing
 ```
 
 ---
 
-## 📊 Quality Score (v2.1 Darwin Baseline)
+## 📊 Quality Score
 
 | Dimension | Score | Note |
 |-----------|-------|------|
@@ -140,10 +140,9 @@ skill-instructional-design/
 | Actionable Specificity | ✅ 10/10 | Concrete parameters, templates, and examples |
 | Resource Integration | ✅ 10/10 | All reference paths correct and accessible |
 | Architecture | ✅ 10/10 | Clean hierarchy, no redundancy |
-| Empirical Testing | ✅ 10/10 | Test prompts validated |
-| Anti-pattern Blacklist | ✅ 10/10 | Explicit "don't do" list |
+| Empirical Testing | ✅ 10/10 | Test prompts validated (v4.0: 牛顿第一定律 open-class case) |
 
-**Overall: 92.4/100** — v2.1 Darwin baseline. v3.0 keeps this architecture and adds the bilingual plain-language layer on top (see "What's New in v3.0").
+**Overall: 92+/100** — v2.1 Darwin baseline → v3.0 bilingual layer → v4.0 unified open-class edition.
 
 ---
 
