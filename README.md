@@ -25,10 +25,41 @@
 | **Bloom's Taxonomy** 📊 | 6×4 matrix for precise ABCD learning objectives (observable verbs only) |
 | **8-D Quality Check** 🔍 | Dimension 3 rebuilt: question quality & thinking depth (six-feature check + chain progression + coverage map); readability veto retained |
 | **Word Export** 📄 | Standard-formatted .docx lesson plans via built-in formatting engine (print-ready, 仿宋/黑体/楷体 typography) |
+| **Goal-Confirmation Gate** ✅ | v5.3: learning objectives must be sent to the user for confirmation before any further design — no large-scale rework after goals are locked (all subjects) |
+| **Primary-Chinese Scaffold** 🧩 | v5.3: primary-Chinese-only "practice-block" backbone (two-period division / independent question chain for text comprehension / four integration methods) — other grades & subjects keep the question-chain backbone |
 
 ---
 
 ## 🆕 What's New
+
+### v5.3 (2026-09-13) — 流程增强 · 小学语文骨架优化（Workflow & Primary-Chinese Scaffold）
+
+本次更新分两类：**①通用流程增强（所有学科、所有学段适用）**；**②小学语文专属优化（仅限小学语文，不影响初高中语文与其他学科）**。
+
+#### 一、通用流程增强（all subjects & grades）
+
+- **目标确认关卡 Goal-Confirmation Gate（硬性）** — Step 1.5 产出教学目标卡后，**必须暂停并把目标发给用户核对**：用户确认，或按用户意见修改并再次确认后，才能进入 Step 1.8 及后续设计；用户未回复则停在该步等待。目的是避免"目标定型后整份教案大面积返工"。核对话术已内置（问三件事：基础字词/技能目标齐不齐、行为目标可不可测、要不要增删）。
+- **目标完整性 Goal Completeness** — 教学目标必须"**三条腿齐全**"，缺一不可：**基础知识与基本技能**（语文的字词、朗读；数学的基本运算等，最容易被漏掉）＋ **素养目标** ＋ **应用与迁移目标**；并要求逐条对照本课知识点自检。
+
+#### 二、小学语文专属优化（仅限小学语文 · primary Chinese only）
+
+- **实践板块骨架 Practice-Block Backbone** — 小学语文的教学过程改按"**语言实践活动**"组织（不再是"问题链贯穿全课"）：**问题链只承载"精读品悟/精读深悟"板块**，导入、初读、写字、小结等板块用活动或任务推进。
+- **两课时任务分工 Two-Period Division** —
+  - **第一课时**＝导入激趣（任务导向）→ 初读课文·整体感知 → 认读字词·梳理脉络 → 写字巩固·小结；**任务重心＝生字词教学＋把握课文主要内容；不做深度理解**。
+  - **第二课时**＝复习巩固（含听写）→ 精读深悟·深度理解课文 → 积累与表达运用 → 小结；**任务重心＝深度理解课文＋读写迁移**。
+- **第一课时骨架三原则** —
+  1. **导入必须指向本课任务**：只做"看图揭题、明确任务"，**不得越位去谈"怎样写清楚"**等深度理解话题（否则导入与后续板块格格不入）；
+  2. **整体感知紧接初读**：遵循"从整体入手"——先读通、先知道"写了什么"，再进入字词与脉络，**整体感知不单独成环节排在字词之后**；
+  3. **字词与脉络合并落实**：认读字词（随文正音）与梳理脉络（说清主要内容）放在同一板块。
+- **课文理解独立成链** — 小学语文的"课文理解"**必须独立设计一条问题链**，沿"**整体把握 → 细部品读 → 深入体会 → 意义建构**"的梯度展开，自成体系、独立呈现（教案「二、导学问题设计」中单列"课文理解问题链"），不与其他板块（字词、写字、迁移运用）的问题混列。
+- **融合四法 Four Integration Methods**（字词学习与教学主线融合的具体做法）：① **词串串主线**（把生字词按课文脉络编成几组词串，读词串即认角色、理内容）；② **关键词带全篇**（抓反复出现或关键的字词当读懂课文的抓手）；③ **分布落实**（认读在"初读"、书写在"写字"，不集中成块）；④ **书写相机穿插**（范写易错字＋同桌互评）。
+- **适用范围严格限定** — 上述语文规则**仅适用于小学语文**；**初中语文、高中语文与数学、物理、化学、英语等其他学科，一律按"问题链骨架"组织教学环节，不套用"实践板块"与两课时分工**。
+
+#### 三、本次同步还修复
+
+- Step 4 文档结构中的第一课时骨架与 Step 2a **版本对齐**（此前两处不一致）；
+- 全文"语文"规则统一加注"**仅限小学语文**"，消除对其他学段/学科的潜在影响。
+
 
 ### v5.0 (2026-09) — Wenke Question-Driven Edition 问课重构版
 
